@@ -3,6 +3,13 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Categoria;
+use App\Models\Comentario;
+use App\Models\Hilo;
+use App\Models\Respuesta;
+use App\Models\Subforo;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,11 +21,30 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        User::factory(10)->create();
+/*
+        Subforo::factory(10)
+            ->has(
+                Categoria::factory(2)
+            )
+            ->has(
+                Hilo::factory()
+            )
+            ->create();
+*/
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        Subforo::fill();
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

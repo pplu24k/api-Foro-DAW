@@ -8,4 +8,25 @@ use Illuminate\Database\Eloquent\Model;
 class Categoria extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+
+        'nombre'
+
+    ];
+
+    public $timestamps = false;
+
+
+    public function subForo(){
+        return $this->belongsTo(Subforo::class);
+    }
+
+    public function hilo(){
+        return $this->hasMany(Hilo::class);
+    }
+
 }
+
+
+
