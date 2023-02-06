@@ -22,18 +22,15 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         User::factory(10)->create();
-/*
+
         Subforo::factory(10)
             ->has(
                 Categoria::factory(2)
             )
-            ->has(
-                Hilo::factory()
-            )
             ->create();
-*/
 
-        Subforo::fill();
+
+
 
 
 

@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\auth\AuthController;
+use App\Http\Controllers\secciones\CategoriaController;
+use App\Http\Controllers\secciones\SubforoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::controller(AuthController::class)->group(function () {
 	Route::post('/auth/register', 'register');
     Route::post('/auth/login', 'register');
-
+/*
     Route::middleware([EnsureTokenIsValid::class])->group(function () {
         Route::get('/', function () {
             //
@@ -29,6 +31,9 @@ Route::controller(AuthController::class)->group(function () {
             //
         })->withoutMiddleware([EnsureTokenIsValid::class]);
     });
-
+*/
 
 });
+
+Route::get('/subforos',[SubforoController::class,'index']);
+Route::get('/subforos/{id}',[CategoriaController::class,'index']);
