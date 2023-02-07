@@ -16,9 +16,13 @@ class SubforoFactory extends Factory
      */
     public function definition()
     {
+
+        $subforo = fake()->unique()->name();
+
         return [
 
-            'nombre' => fake()->unique()->name(),
+            'nombre' => $subforo,
+            'slug' => str_slug($subforo),
 
         ];
     }

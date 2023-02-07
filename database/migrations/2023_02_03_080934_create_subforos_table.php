@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('subforos', function (Blueprint $table) {
             $table->id();
             $table->string("nombre");
+            $table->string("slug");
+
 
         });
     }

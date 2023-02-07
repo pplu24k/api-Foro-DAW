@@ -17,8 +17,12 @@ class CategoriaFactory extends Factory
      */
     public function definition()
     {
+
+        $categoria = fake()->unique()->name();
+
         return [
-            'nombre' => fake()->unique()->name(),
+            'nombre' => $categoria,
+            'slug' => str_slug($categoria),
             'subforo_id' => Subforo::factory()
         ];
     }
