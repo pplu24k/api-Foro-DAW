@@ -36,4 +36,5 @@ Route::controller(AuthController::class)->group(function () {
 });
 
 Route::get('/subforos',[SubforoController::class,'index']);
-Route::get('/subforos/{id}',[CategoriaController::class,'index']);
+Route::get('/subforos/{slug}',[CategoriaController::class,'index']);
+Route::get('/subforos/{slugs}/{slugc}',[CategoriaController::class,'mostrarCategoria']);

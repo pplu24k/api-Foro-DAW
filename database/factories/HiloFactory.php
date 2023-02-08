@@ -21,6 +21,8 @@ class HiloFactory extends Factory
         return [
 
             'nombre' => fake()->name(),
+            'usuario_id' => User::all()->random()->id
+
 
 
 

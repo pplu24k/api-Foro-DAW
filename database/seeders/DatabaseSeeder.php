@@ -23,11 +23,15 @@ class DatabaseSeeder extends Seeder
     {
         User::factory(10)->create();
 
-        Subforo::factory(10)
+        Subforo::factory(8)
             ->has(
-                Categoria::factory(2)
+                Categoria::factory(5)->has(Hilo::factory(5))
             )
             ->create();
+
+
+
+       // $hilos = Hilo::factory(80);
 
 
 
