@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Categoria;
 use App\Models\Hilo;
 use App\Models\Subforo;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CategoriaController extends Controller
@@ -28,6 +29,7 @@ class CategoriaController extends Controller
 
     public function mostrarCategoria($slugs, $slugc){
 
+        $ret = [];
 
         $subforo = Subforo::where('slug', $slugs)->get()[0];
 
@@ -39,16 +41,30 @@ class CategoriaController extends Controller
         $hilos = Hilo::where('categoria_id', $categoria->id)
             ->get();
 
+            foreach ($hilos as $hilo)
+            {
 
-        return response(json_encode([
+                $usuario = User::where('id', $hilo->usuario_id)->get();
+            array_push($ret, [
+                'hilo' => $hilo,
+                'usuario' => $usuario
+            ]);
 
-            'categoria' => $categoria,
 
-            'hilos' => $hilos
-
+            }
 
 
-        ]));
+
+
+
+        return response(json_encode(
+            [
+
+                'categoria' => $categoria,
+                'hilos' => $ret
+
+            ]
+        ));
 
 
     }

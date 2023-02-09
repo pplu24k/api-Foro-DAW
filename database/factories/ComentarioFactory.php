@@ -19,6 +19,9 @@ class ComentarioFactory extends Factory
         return [
 
             'contenido' => fake()->realText(),
+            'usuario_id' => \App\Models\User::all()->random()->id,
+            'hilo_id' => \App\Models\Hilo::all()->random()->id
+
 
         ];
     }

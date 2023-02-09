@@ -25,12 +25,14 @@ class DatabaseSeeder extends Seeder
 
         Subforo::factory(8)
             ->has(
-                Categoria::factory(5)->has(Hilo::factory(5))
+                Categoria::factory(5)
+                ->has(Hilo::factory(5))
+
             )
             ->create();
 
 
-
+        Comentario::factory(500)->create();
        // $hilos = Hilo::factory(80);
 
 
