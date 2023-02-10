@@ -32,8 +32,9 @@ class DatabaseSeeder extends Seeder
             ->create();
 
 
-        Comentario::factory(500)->create();
-       // $hilos = Hilo::factory(80);
+        Comentario::factory(5000)->create();
+        Respuesta::factory(1500)->create();
+
 
 
 

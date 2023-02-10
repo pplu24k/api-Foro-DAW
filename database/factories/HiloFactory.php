@@ -27,6 +27,7 @@ class HiloFactory extends Factory
 
 
 
+
         ];
     }
 }

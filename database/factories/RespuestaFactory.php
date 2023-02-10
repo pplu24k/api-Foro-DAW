@@ -19,7 +19,8 @@ class RespuestaFactory extends Factory
         return [
 
             'contenido' => fake()->realText(),
-
+            'usuario_id' => \App\Models\User::all()->random()->id,
+            'comentario_id' => \App\Models\Comentario::all()->random()->id
         ];
     }
 }
