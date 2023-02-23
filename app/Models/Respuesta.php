@@ -11,6 +11,7 @@ class Respuesta extends Model
 
     protected $fillable = [
 
+        'nick',
         'contenido',
 
 

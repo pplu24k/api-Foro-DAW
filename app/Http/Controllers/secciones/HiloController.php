@@ -35,18 +35,19 @@ class HiloController extends Controller
             foreach ($comentarios as $comentario)
             {
 
-
+            $usuarioC = User::where('id', $comentario->usuario_id)->get();
 
             $respuestasArray = [];
             $respuestas = Respuesta::where('comentario_id', $comentario->id)->get();
 
             foreach ($respuestas as $respuesta) {
 
+                $respuesta->get();
                 $usuarioR = User::where('id', $respuesta->usuario_id)->get();
 
                 array_push($respuestasArray,[
 
-                    'nick' => $usuarioR->nick,
+                    'usuario' => $usuarioR,
                     'respuesta' => $respuesta
 
                 ]);
@@ -54,7 +55,10 @@ class HiloController extends Controller
             }
 
             array_push($contenidoHilo, [
-                'comentario' => $comentario,
+                'comentario' => [
+                    'usuario' => $usuarioC,
+                    'comentario' => $comentario
+                ],
                 'respuestas' => $respuestasArray
             ]);
 
@@ -66,7 +70,9 @@ class HiloController extends Controller
             [
 
                 'hilo' => $hilo,
-                'contenido' => $contenidoHilo
+                'contenido' =>   $contenidoHilo
+
+
 
             ]
         ));
