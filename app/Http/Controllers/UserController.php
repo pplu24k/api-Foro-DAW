@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 
+
 class UserController extends Controller
 {
     /**
@@ -14,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -25,7 +26,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -36,8 +37,8 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
-    }
+     
+    }   
 
     /**
      * Update the specified resource in storage.
@@ -48,7 +49,7 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+
     }
 
     /**
@@ -59,6 +60,21 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+
+
+    public function mostrarPerfil($nick){
+
+
+        $usuario = User::where('nick',$nick)
+        ->get()[0];
+
+
+        return json_encode($usuario);
+
+
+
+
+
+
     }
 }

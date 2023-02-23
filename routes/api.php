@@ -4,6 +4,7 @@ use App\Http\Controllers\auth\AuthController;
 use App\Http\Controllers\secciones\CategoriaController;
 use App\Http\Controllers\secciones\HiloController;
 use App\Http\Controllers\secciones\SubforoController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -40,3 +41,6 @@ Route::get('/subforos',[SubforoController::class,'index']);
 Route::get('/subforos/{slug}',[CategoriaController::class,'index']);
 Route::get('/subforos/{slugs}/{slugc}',[CategoriaController::class,'mostrarCategoria']);
 Route::get('/subforos/{slugs}/{slugc}/{id}',[HiloController::class,'mostrarHilo']);
+
+
+Route::get('/perfil/{nick}',[UserController::class,'mostrarPerfil']);
