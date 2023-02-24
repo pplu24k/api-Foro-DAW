@@ -44,3 +44,23 @@ Route::get('/subforos/{slugs}/{slugc}/{id}',[HiloController::class,'mostrarHilo'
 
 
 Route::get('/perfil/{nick}',[UserController::class,'mostrarPerfil']);
+Route::post('/perfil/{nick}/avatar',[UserController::class,'establecerAvatar']);
+
+Route::get('/storage/{img}', function($img){
+
+
+    $headers = [
+        'Cache-Control'       => 'must-revalidate, post-check=0, pre-check=0',
+        'Content-type'        => 'image/png',
+        'Content-Disposition' => 'attachment; filename=image01.png',
+        'Expires'             => '0',
+        'Pragma'              => 'public',
+    ];
+
+        $file=public_path();
+        return response()->file($file,$headers);
+
+
+
+
+  });
